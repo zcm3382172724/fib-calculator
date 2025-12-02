@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>斐波那契数列计算</title>
+    <script>
+        function calculateFib() {
+            const n = parseInt(document.getElementById('numInput').value);
+            const resultDiv = document.getElementById('result');
+            
+            if (isNaN(n) || n < 1) {
+                resultDiv.textContent = "请输入一个大于等于1的正整数";
+                return;
+            }
+
+            let fib = [0, 1];
+            for (let i = 2; i < n; i++) {
+                fib[i] = fib[i - 1] + fib[i - 2];
+            }
+
+            resultDiv.textContent = `斐波那契数列前${n}项：${fib.slice(0, n).join(', ')}`;
+        }
+    </script>
+    <style>
+        body { font-family: Arial; max-width: 600px; margin: 2rem auto; padding: 0 1rem; }
+        input { padding: 0.5rem; width: 200px; }
+        button { padding: 0.5rem 1rem; cursor: pointer; }
+        #result { margin-top: 1rem; color: #333; }
+    </style>
+</head>
+<body>
+    <h1>斐波那契数列计算器</h1>
+    <input type="number" id="numInput" placeholder="请输入项数（≥1）">
+    <button onclick="calculateFib()">计算</button>
+    <div id="result"></div>
+</body>
+</html>
