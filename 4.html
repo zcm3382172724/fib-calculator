@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fib数列前20项总和</title>
+    <style>
+        body { 
+            font-family: "微软雅黑", Arial; 
+            max-width: 800px; 
+            margin: 50px auto; 
+            padding: 0 20px;
+        }
+        .container {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .result {
+            margin-top: 20px;
+            line-height: 1.8;
+            font-size: 18px;
+        }
+        .sum {
+            color: #dc3545;
+            font-weight: bold;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Fib数列前20项及总和</h1>
+        <div class="result" id="fibResult"></div>
+        <div class="sum" id="fibSum"></div>
+    </div>
+
+    <script>
+        // 实现Fib数列前20项及总和
+        let a = 0, b = 1;
+        let sum = 0;
+        let fibList = [];
+
+        for (let i = 1; i <= 20; i++) {
+            fibList.push(a);  // 记录当前项
+            sum += a;         // 累加总和
+            // 计算下一项
+            [a, b] = [b, a + b];
+        }
+
+        // 显示结果
+        document.getElementById("fibResult").innerHTML = 
+            "前20项：" + fibList.join(" , ");
+        document.getElementById("fibSum").innerHTML = 
+            "总和：" + sum;
+    </script>
+</body>
